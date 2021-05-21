@@ -37,6 +37,7 @@ class FirebaseMusicSource @Inject constructor(
                 .putString(METADATA_KEY_ALBUM_ART_URI, song.imageUrl)
                 .putString(METADATA_KEY_DISPLAY_SUBTITLE, song.subtitle)
                 .putString(METADATA_KEY_DISPLAY_DESCRIPTION, song.subtitle)
+                .putString(METADATA_KEY_GENRE, song.tag)
                 .build()
         }
         state = STATE_INITIALIZED
@@ -59,6 +60,7 @@ class FirebaseMusicSource @Inject constructor(
             .setSubtitle(song.description.subtitle)
             .setMediaId(song.description.mediaId)
             .setIconUri(song.description.iconUri)
+            .setDescription(METADATA_KEY_GENRE)
             .build()
         MediaBrowserCompat.MediaItem(desc, FLAG_PLAYABLE)
     }.toMutableList()

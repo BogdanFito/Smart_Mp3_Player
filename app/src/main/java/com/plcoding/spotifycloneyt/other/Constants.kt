@@ -7,4 +7,9 @@ object Constants {
     const val NOTIFICATION_ID = 1
     const val MEDIA_ROOT_ID = "root_id"
     const val NETWORK_ERROR = "NETWORK_ERROR"
+    var CURRENT_MOOD = ""
+    const val SAD_MOOD = "sad"
+    const val FUNNY_MOOD = "funny"
+    const val SLEEPY_MOOD = "sleepy"
+
 }

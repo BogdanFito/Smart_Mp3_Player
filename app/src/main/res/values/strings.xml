@@ -2,4 +2,9 @@
     <string name="app_name">SpotifyCloneYT</string>
     <string name="notification_channel_name">Music Channel</string>
     <string name="notification_channel_description">Shows the currently playing music</string>
+    <string name="sad_songs">Sad songs</string>
+    <string name="funny_songs">Funny Songs</string>
+    <string name="songs_for_sleep">Songs for sleep</string>
+    <string name="random_playlist">Random Playlist</string>
+    <string name="generate_playlist_by_current_mood">Generate playlist by current mood</string>
 </resources>

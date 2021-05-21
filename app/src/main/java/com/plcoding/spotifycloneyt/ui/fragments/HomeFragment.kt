@@ -9,6 +9,10 @@ import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.plcoding.spotifycloneyt.R
 import com.plcoding.spotifycloneyt.adapters.SongAdapter
+import com.plcoding.spotifycloneyt.other.Constants.CURRENT_MOOD
+import com.plcoding.spotifycloneyt.other.Constants.FUNNY_MOOD
+import com.plcoding.spotifycloneyt.other.Constants.SAD_MOOD
+import com.plcoding.spotifycloneyt.other.Constants.SLEEPY_MOOD
 import com.plcoding.spotifycloneyt.other.Status
 import com.plcoding.spotifycloneyt.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,8 +48,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             when(result.status) {
                 Status.SUCCESS -> {
                     allSongsProgressBar.isVisible = false
-                    result.data?.let { songs ->
+                    if (CURRENT_MOOD.isEmpty()) result.data?.let { songs ->
                         songAdapter.songs = songs
+                    } else if (CURRENT_MOOD.equals(SAD_MOOD)) result.data?.let { songs ->
+                        songAdapter.songs = songs.filter { it.tag.equals(SAD_MOOD) }
+                    } else if (CURRENT_MOOD.equals(FUNNY_MOOD)) result.data?.let { songs ->
+                        songAdapter.songs = songs.filter { it.tag.equals(FUNNY_MOOD) }
+                    } else if (CURRENT_MOOD.equals(SLEEPY_MOOD)) result.data?.let { songs ->
+                        songAdapter.songs = songs.filter { it.tag.equals(SLEEPY_MOOD) }
                     }
                 }
                 Status.ERROR -> Unit
