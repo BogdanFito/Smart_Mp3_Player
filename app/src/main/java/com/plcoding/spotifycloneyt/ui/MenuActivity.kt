@@ -31,6 +31,6 @@ class MenuActivity : AppCompatActivity() {
         startActivity(Intent(this,MainActivity::class.java));
     }
     fun generateMoodPLaylist(view: View) {
-
+        startActivity(Intent(this,CameraXLivePreviewActivity::class.java));
     }
 }
